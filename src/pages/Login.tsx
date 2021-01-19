@@ -18,7 +18,7 @@ const Login: React.FC = () => {
     console.log("handleLogin")
     const error = await auth.authenticate(email, password)
     setError(error)
-    history.push('/')
+    if(!error) history.push('/')
 
   }, [email, password, auth, history])
 
@@ -46,7 +46,7 @@ const Login: React.FC = () => {
           <Typography variant="body2" color="error">{error}</Typography>
         </Container>
         </form>
-      </Container>
+      </Container>  
     </Container>
   </div>;
 }
